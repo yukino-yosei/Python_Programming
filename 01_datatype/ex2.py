@@ -36,3 +36,14 @@ print(a)
 print(b)
 a = float("inf")
 print(a - 1)
+
+print(0.1 + 0.2)
+print(0.1 + 0.2 == 0.3)
+print(f"{0.1:.20f} {0.2:.20f}")
+# print(sys.float_info.epsilon)
+
+# 형변환
+print(float(10))
+print(int(3.14))
+# print(int("3.14"))
+print(int("100"))
