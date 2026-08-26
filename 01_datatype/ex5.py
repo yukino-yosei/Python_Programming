@@ -59,42 +59,43 @@ print(s.endswith("Python"))         # False
 print(s.replace("Python", "C"))     # 전체 치환
 print(s.replace("Python", "C", 1))  # 1개만 치환
 
-# # 판별 문자열 메소드 (isXXX())
-# print("123" )              # 숫자이면 True
-# print("abc")              # 알파벳이면 True
-# print("abc123")           # 알파벳 + 숫자이면 True
-# print(" \t \n")           # 공백문자이면 True
-# print("hello")            # 소문자이면 True
-# print("HELLO")            # 대문자이면 True
+# 판별 문자열 메소드 (isXXX())
+print("123".isdigit())              # 숫자이면 True
+print("五".isnumeric())              # 숫자이면 True
+print("abc".isalpha())              # 알파벳이면 True
+print("abc123".isalnum())           # 알파벳 + 숫자이면 True
+print(" \t \n".isspace())           # 공백문자이면 True
+print("hello".islower())            # 소문자이면 True
+print("HELLO".isupper())            # 대문자이면 True
 
-# # 구분자를 기준으로 문자열을 분리하는 문자열 메소드
-# a = "apple,banana,kiwi"
-# fruits = None                # ","를 기준으로 분리 (기본값 공백)
-# print(fruits)                       # 리스트가 만들어짐
+# 구분자를 기준으로 문자열을 분리하는 문자열 메소드
+a = "apple, banana, kiwi"
+fruits = a.split(", ")                # ","를 기준으로 분리 (기본값 공백)
+print(fruits)                       # 리스트가 만들어짐
 
-# # Iterable(반복가능) 객체안의 문자열을 결합하는 문자열 메소드
-# print()             # ","로 연결하여 결합
+# Iterable(반복가능) 객체안의 문자열을 결합하는 문자열 메소드
+print(",".join(fruits))             # ","로 연결하여 결합
 
 
 # =========================================================
 #  🔥 실습 문제
 # =========================================================
 
-# # 1️⃣ 문자열 양쪽 공백 제거 + 대문자 변환
-# s = "  hello world  "
-# result = s.______().______()
-# print(result)                   # ✅ "HELLO WORLD" 출력
+# 1️⃣ 문자열 양쪽 공백 제거 + 대문자 변환
+s = "  hello world  "
+result = s.strip().upper()
+print(result)                   # ✅ "HELLO WORLD" 출력
 
-# # 2️⃣ 이메일 형식 체크
-# email = "abcd@dimigo.hs.kr"
-# print(___ ___ email)            # ✅ "@dimigo.hs.kr"이 포함되어 있으면 True
+# 2️⃣ 이메일 형식 체크
+email = "abcd@dimigo.hs.kr"
+print("@dimigo.hs.kr" in email)            # ✅ "@dimigo.hs.kr"이 포함되어 있으면 True
 
-# # 3️⃣ 문자열에서 특정 단어가 몇 번 등장하나?
-# sentence = "the quick brown fox jumps over the lazy dog"
-# print(sentence._____("the"))    # ✅ 2 출력
+# 3️⃣ 문자열에서 특정 단어가 몇 번 등장하나?
+sentence = "the quick brown fox jumps over the lazy dog"
+print(sentence.count("the"))    # ✅ 2 출력
 
-# # 4️⃣ 공백문자를 기준으로 문자열을 리스트로 나누고, 다시 문자열로 결합하기
-# data = "   kim   lee   park   choi   "
-# names = data._____()
-# print(names)                    # ✅ 리스트 출력
-# print(___.____(names))          # ✅ "kim lee park choi" 출력
+# 4️⃣ 공백문자를 기준으로 문자열을 리스트로 나누고, 다시 문자열로 결합하기
+data = "   kim   lee   park   choi   "
+names = data.split()
+print(names)                    # ✅ 리스트 출력
+print(" ".join(names))          # ✅ "kim lee park choi" 출력
