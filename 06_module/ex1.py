@@ -60,18 +60,39 @@ print(sys.path)                     # 파이썬 라이브러리 검색 디렉토
 # ===========================================================
 
 # requests 모듈: HTTP 요청과 응답을 처리하기 위한 써드 파티 모듈
+import requests
 
+url = "https://httpbin.org/get?user_id=crong"
 
-url = "https://httpbin.org/get"
+response = requests.get(url)
 
+print(response.status_code)
+print(response.text)
+print(type(response.text))
 
+# 직렬화와 역직렬화
+# - 직렬화(Serialization) : 메모리 상의 객체를 파일 저장 or 전송이 가능한 형태로 변환
+# - 역직렬화(Deserialization) : 저장된 or 전송받은 데이터를 원래의 객체로 복원
+# - 데이터 직렬화 방식 : XML, JSON, YAML
 
+d = response.json()     # 서버가 응답한 JSON 형식의 문자열을 Python 객체로 변환
+
+print(type(d))
+print(d['args']['user_id'])
+print(d['headers']['Host'])
 
 # ===========================================================
 # 3. 사용자 정의 모듈 만들기
 # ===========================================================
 
+import mymath
+from mymath import PI, add
 
+print(mymath.PI)
+print(mymath.add(20, 30))
+
+print(PI)
+print(add(40, 50))
 
 # __pycache__ 디렉토리란?
 # Python이 실행 속도를 높이기 위해 컴파일된 바이트코드(.pyc)를 캐시로 저장하는 디렉터리

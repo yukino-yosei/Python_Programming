@@ -9,17 +9,35 @@
 #  - from 패키지명.모듈명 import 함수명 (from 가져올 위치 import 가져올 대상)
 # ===========================================================
 
+from mypackage import mymath
+from mymath import PI, add
 
+print(mymath.PI)
+print(mymath.add(20, 30))
+
+print(PI)
+print(add(30, 40))
 
 # ===========================================================
 # 2. __init__에서 re-export한 것 사용하기
 # ===========================================================
 
+import mypackage as m
 
+print(m.VERSION)
+print(m.add(100, 200))
 
 url = "https://httpbin.org/get"
 
 # re-export하지 않은 경우 세부 모듈 경로를 알아야 함
+from requests import api
 
+response = api.get(url)
+print(response.status_code)
 
 # re-export를 한 경우에는 세부 모듈 경로를 몰라도 됨
+
+import requests
+
+response = requests.get(url)
+print(response.status_code)
