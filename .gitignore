@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+14_ai/data/
+14_ai/dataset/
+14_ai/images/
+14_ai/model/
+15_ai_text_project/data/
+15_ai_text_project/model/
+16_ai_image_project/data/
